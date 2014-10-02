@@ -1,0 +1,57 @@
+body{
+
+	background-color: #56738C;
+}
+.container{
+	width: 90%;
+	height:auto;
+	margin: 10px auto;
+	background-color: white;
+}
+
+.header{
+	width:inherit;
+	height: auto;
+}
+
+.header h1{
+
+	font-size: 300%;
+	margin: 20px 0px 0px 20px;
+}
+
+.header h5{
+
+		margin: 0px 0px 0px 200px;
+}
+
+.content{
+	text-align: center;
+	margin: 100px 0px 40px 0px;
+}
+
+.searchbar{
+
+	width: 620px;
+	height: 30px;
+	background-color: rgba(240,240,240,0.5);
+	line-height: 30px;
+	font-size: 30px;	
+}
+
+.submit{
+
+		width: 100px;
+		border-radius: 5px;
+}
+
+
+.chat{
+	overflow: scroll;
+	width: 80%;
+	height: 500px;
+	border: 1px solid black;
+	margin: 10px auto;
+	background-color: rgba(250,250,250, 0.5);
+
+}

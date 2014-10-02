@@ -1,0 +1,5 @@
+six>=1.4.0
+decorator>=3.4.0
+
+[test]
+pytest>=2.2.3

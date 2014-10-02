@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title> Information Bot: Final Year Project</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index2.css') }}" />
+	</head>
+
+	<body>
+		{% block content %}
+		<div class="header">
+		<img src="{{ url_for('static', filename = 'logo.png') }}" width="90px" height="100px;">
+			<h5> Mahavir Education Trust's</h5>
+			<h1> Shah and Anchor Kutchhi Engineering College</h1>
+
+		</div>
+
+		<div class="subheader">
+
+			<img src="{{ url_for('static', filename = 'chatbot.jpg') }}" width="90px" height="100px;">
+			<h2> <span>I</span>nformation <span>B</span>ot</h2>
+
+		</div>
+
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2">
+						<img src="{{ url_for('static', filename = 'question.jpg') }}" width="40%" height="40%">
+					</div>
+					<div class="span10">
+						<h4> Have a doubt? I can try... </h4>
+						<form name="login" class="search" action="" method="POST">
+							{{form.hidden_tag()}}
+							{{form.openid(size=80)}}
+							{% for error in form.errors.openid %}
+		        			<span  class="error" style="color: red;">[{{error}}]</span>
+		        			{% endfor %}
+							<input type="submit" name="submit" class="submit">
+
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+		<div class="chat">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span8" style="overflow:auto;">
+						{% with messages = get_flashed_messages(category_filter=["Question"]) %}
+					    {% if messages %}
+					    {% for message in messages %}
+					    	<p> <strong>Question:</strong> {{ message }} </p>
+					    {% endfor %}
+					    {% endif %}
+					    {% endwith %}
+
+					    {% with messages = get_flashed_messages(category_filter=["Answer"]) %}
+					    {% if messages %}
+					    {% for message in messages %}
+					    	<p> <strong> Answer: </strong> {{ message }} </p>
+					    {% endfor %}
+					    {% endif %}
+						{% endwith %}
+						<br>
+						{% with messages = get_flashed_messages(category_filter=["Display"]) %}
+					    {% if messages %}
+					    {% for message in messages %}
+					    	<p> {{ message }} </p>
+					    {% endfor %}
+					    {% endif %}
+						{% endwith %}
+
+					</div>
+					<div class="span4">
+						<img src="{{ url_for('static', filename = 'questions-and-answers.jpg') }}" width="100%" height="100%">
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<hr>
+
+
+		<div class="footer">
+
+			<p id="left">
+
+				Prepared in Guidance of Prof. Uday Bhave and Prof. Dhara Kalola
+
+			</p>
+			
+
+			<div> 
+				<p id="right">
+
+					Made By: <br>
+					Rajan Sanghvi BE - 3 58 <br>
+					Priyanka Shah BE - 3 65 <br>
+					Sunish Sheth BE - 3 66 <br>
+
+				</p>
+
+
+			</div>
+
+		</div>
+
+		{% endblock %}
+
+
+
+	</body>
+
+</html>

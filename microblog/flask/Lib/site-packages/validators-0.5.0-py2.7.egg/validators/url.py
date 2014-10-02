@@ -1,0 +1,46 @@
+import re
+from .utils import validator
+
+
+regex = (
+    r'^[a-z]+://([^/:]+{tld}|([0-9]{{1,3}}\.)'
+    r'{{3}}[0-9]{{1,3}})(:[0-9]+)?(\/.*)?$'
+)
+
+pattern_with_tld = re.compile(regex.format(tld=r'\.[a-z]{2,10}'))
+pattern_without_tld = re.compile(regex.format(tld=''))
+
+
+@validator
+def url(value, require_tld=True):
+    """
+    url
+    ---
+
+    Returns whether or not given value is a valid URL. If the value is
+    valid URL this function returns True, otherwise `FailedValidation`.
+
+    This validator is based on `WTForms URL validator`_.
+
+    .. _WTForms URL validator:
+       https://github.com/wtforms/wtforms/blob/master/wtforms/validators.py
+
+    Examples::
+
+        >>> import validators
+
+        >>> assert validators.url('http://foobar.dk')
+
+        >>> assert validators.url('http://localhost/foobar', require_tld=False)
+
+        >>> assert not validators.url('http://foobar.d')
+
+
+    .. versionadded:: 0.2
+
+    :param value: URL address string to validate
+    """
+
+    if require_tld:
+        return pattern_with_tld.match(value)
+    return pattern_without_tld.match(value)

@@ -1,0 +1,22 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>microblog</title>
+    {% endif %}
+  </head>
+  <body>
+        <h1>Positive Database</h1>
+    <hr>
+    <table border="1">
+        {%for question, answer in get_flashed_messages(with_categories=true)%}
+        <tr>
+            <td>{{ question }}</td>
+            <td>{{ answer }}</td>
+        <tr>
+        {% endfor %}
+    </table>
+    {% block content %}{% endblock %}
+  </body>
+</html>

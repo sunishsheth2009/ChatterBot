@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title> Admin: Chatter Bot: Final Year Project</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index2.css') }}" />
+		<script type="text/javascript">
+
+			function validate(){
+
+				var noerror=true;
+
+				var username = document.getElementById("username");
+				if(username.value!="admin"){
+					alert("Incorrect username");
+					username.focus()
+					noerror=false;
+					return false;
+				}
+					
+				var password= document.getElementById("password")
+				if (password.value!="admin") {
+					alert ("Incorrect password");
+					password.focus()
+					noerror=false;
+					return false;
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="header">
+			<img src="{{ url_for('static', filename = 'logo.png') }}" width="90px" height="100px;">
+			<h5> Mahavir Education Trust's</h5>
+			<h1> Shah and Anchor Kutchhi Engineering College</h1>
+
+		</div>
+
+		<div class="subheader">
+
+			<img src="{{ url_for('static', filename = 'chatbot.jpg') }}" width="90px" height="100px;">
+			<h2> <span>C</span>hatter <span>B</span>ot</h2>
+
+		</div>
+
+		<div class="content">
+
+				<h4> Admin Login </h4>
+
+				<form name="login" class="login" method:"POST" action="dbentry" onsubmit="return(validate());">
+
+					<div class="field">
+						<label for="username">User Name:</label>
+						<input type="text" class="input" id="username" name="username" />						
+					</div>
+					<br>
+					<div class="field">
+						<label for="password">Password:</label>
+						<input type="password" class="input" id="password" name="password" />						
+					</div>
+
+				 	<input type="submit" name="submit" class="submit" >
+
+				</form>
+
+		</div>
+
+		<div class="footer">
+
+			<p id="left">
+
+				Prepared in Guidance of Prof. Uday Bhave and Prof. Dhara Kalola
+
+			</p>
+			
+
+			<div> 
+				<p id="right">
+
+					Made By: <br>
+					Rajan Sanghvi BE - 3 58 <br>
+					Priyanka Shah BE - 3 65 <br>
+					Sunish Sheth BE - 3 66 <br>
+
+				</p>
+
+
+			</div>
+
+		</div>
+
+
+	</body>
+
+</html>

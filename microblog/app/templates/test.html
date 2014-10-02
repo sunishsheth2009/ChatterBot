@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Chatter Bot</title>
+ 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
+	</head>
+
+	<body>
+		{% block content %}
+		<div class="container">
+
+
+			<div class="header">
+
+				<h1>Chatter Bot</h1>
+
+				<h5>Solve your Computer Problems here</h5>
+
+			</div>
+
+			<br>
+			<hr>
+
+			<div class="content">
+
+				<h4> Enter your doubt</h4>
+
+				<form name="login" class="search" action="" method="POST">
+					{{form.hidden_tag()}}
+					{{form.openid(size=80)}}<br>
+					{% for error in form.errors.openid %}
+        			<span style="color: red;">[{{error}}]</span>
+        			{% endfor %}<br>
+					<input type="submit" name="submit" class="submit">
+
+				</form>
+
+			</div>
+
+						
+			<div class="chat">
+				{% with messages = get_flashed_messages(category_filter=["Question"]) %}
+			    {% if messages %}
+			    {% for message in messages %}
+			    	<p> <strong>Question:</strong> {{ message }} </p>
+			    {% endfor %}
+			    {% endif %}
+			    {% endwith %}
+
+			    {% with messages = get_flashed_messages(category_filter=["Answer"]) %}
+			    {% if messages %}
+			    {% for message in messages %}
+			    	<p> <strong> Answer: </strong> {{ message }} </p>
+			    {% endfor %}
+			    {% endif %}
+			    {% endwith %}	
+			</div>
+
+
+		</div>
+		{% endblock %}
+
+	</body>
+
+</html>

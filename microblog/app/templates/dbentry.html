@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title> Admin: Chatter Bot: Final Year Project</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index2.css') }}" />
+		<script type="text/javascript">
+
+			function validate(){
+
+				noerror=true;
+
+				var tablename = document.getElementById("tablename");
+				if(tablename.value!="positive" && tablename.value != "negative" && tablename.value!="assertive" && tablename.value!="Positive" && tablename.value!="Negative" && tablename.value!="Assertive" &&
+					tablename.value!="POSITIVE" && tablename.value!="NEGATIVE" && tablename.value!="ASSERTIVE" && tablename.value==""){
+					
+					alert(tablename.value + "  Incorrect tablename");
+					
+					tablename.focus();
+					noerror=false;
+					return false;
+				}
+
+				var question= document.getElementById("question")
+				if (question.value=="") {
+					alert ("Insert a Question");
+					question.focus();
+					noerror=false;
+					return false;
+				}
+
+				var answer= document.getElementById("answer")
+				if (answer.value=="") {
+					alert ("Insert an answer");
+					answer.focus();
+					noerror=false;
+					return false;
+				}
+				if(noerror){
+					alert("Data enetered");
+					return true;
+				}
+
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="header">
+			<img src="{{ url_for('static', filename = 'logo.png') }}" width="90px" height="100px;">
+			<h5> Mahavir Education Trust's</h5>
+			<h1> Shah and Anchor Kutchhi Engineering College</h1>
+
+		</div>
+
+		<div class="subheader">
+
+			<img src="{{ url_for('static', filename = 'chatbot.jpg') }}" width="90px" height="100px;">
+			<h2> <span>C</span>hatter <span>B</span>ot</h2>
+
+		</div>
+
+		<div class="content">
+
+				<h4> Database Entry </h4>
+
+				<form name="dbentry" class="dbentry" action="" method="POST">
+					{{formdb.hidden_tag()}}
+					<div class="field">
+						<label for="tablename">Table Name:</label>
+						{{formdb.tablename(size=80)}}
+						{% for error in formdb.errors.tablename %}
+		        			<span  class="error" style="color: red;">[{{error}}]</span>
+		        		{% endfor %}				
+					</div>
+					<br>
+					<div class="field">
+						<label for="question">Question:</label>
+						{{formdb.quess(size=80)}}
+						{% for error in formdb.errors.quess %}
+		        			<span  class="error" style="color: red;">[{{error}}]</span>
+		        		{% endfor %}							
+					</div>
+					<br>
+					<div class="field">
+						<label for="answer">Answer:</label>
+						{{formdb.answ(rows=5,cols=80)}}
+						{% for error in formdb.errors.answ %}
+		        			<span  class="error" style="color: red;">[{{error}}]</span>
+		        		{% endfor %}
+					</div>
+
+					<div>
+					{% with messages = get_flashed_messages(category_filter=["Error"]) %}
+					{% if messages %}
+					{% for message in messages %}
+					 	<span  class="error" style="color: red;">{{message}}</span>
+					{% endfor %}
+					{% endif %}
+					{% endwith %}	
+					</div>							
+					<br>
+				 	<input type="submit" name="submit" class="submit">
+
+				</form>
+
+		</div>
+		<div class="footer">
+
+			<p id="left">
+
+				Prepared in Guidance of Prof. Uday Bhave and Prof. Dhara Kalola
+
+			</p>
+			
+
+			<div> 
+				<p id="right">
+
+					Made By: <br>
+					Rajan Sanghvi BE - 3 58 <br>
+					Priyanka Shah BE - 3 65 <br>
+					Sunish Sheth BE - 3 66 <br>
+
+				</p>
+
+
+			</div>
+
+		</div>
+
+
+	</body>
+
+</html>

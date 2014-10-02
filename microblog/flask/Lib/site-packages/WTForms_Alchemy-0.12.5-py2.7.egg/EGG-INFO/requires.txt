@@ -1,0 +1,50 @@
+SQLAlchemy>=0.8.0
+WTForms>=1.0.4
+WTForms-Components>=0.9.2
+SQLAlchemy-Utils>=0.23.1
+six>=1.4.1
+
+[i18n]
+SQLAlchemy-i18n >= 0.8.2
+
+[phone]
+phonenumbers>=5.9.2
+
+[intervals]
+intervals>=0.2.0
+
+[arrow]
+arrow>=0.3.4
+
+[timezone]
+python-dateutil
+
+[test]
+pytest>=2.3
+Pygments>=1.2
+Jinja2>=2.3
+docutils>=0.10
+flexmock>=0.9.7
+psycopg2>=2.4.6
+WTForms-Test>=0.1.1
+SQLAlchemy-i18n >= 0.8.2
+phonenumbers>=5.9.2
+intervals>=0.2.0
+arrow>=0.3.4
+python-dateutil
+Babel>=1.3
+passlib >= 1.6, < 2.0
+ipaddr
+colour>=0.0.4
+
+[babel]
+Babel>=1.3
+
+[password]
+passlib >= 1.6, < 2.0
+
+[ipaddress]
+ipaddr
+
+[color]
+colour>=0.0.4
