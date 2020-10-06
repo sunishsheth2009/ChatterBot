@@ -2,6 +2,9 @@
 """Create a "virtual" Python installation
 """
 
+#update the app with the functionality of opening the web browser and show what are you doing
+# these will help to people to understand
+
 # If you change the version here, change it in setup.py
 # and docs/conf.py as well.
 __version__ = "1.9.1"  # following best practices
